@@ -1,4 +1,4 @@
-# asCallback
+# Standard asCallback
 A performant and standard (Bluebird) library that registers a node-style callback on a promise.
 
 [![Build Status](https://travis-ci.org/luin/asCallback.svg?branch=master)](https://travis-ci.org/luin/asCallback)
@@ -6,13 +6,13 @@ A performant and standard (Bluebird) library that registers a node-style callbac
 ## Install
 
 ```
-$ npm install as-callback
+$ npm install standard-as-callback
 ```
 
 ## Usage
 
 ```javascript
-const asCallback = require('as-callback')
+const asCallback = require('standard-as-callback')
 
 const promise = new Promise(function (resolve) {
   setTimeout(function () {
