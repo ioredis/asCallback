@@ -1,6 +1,8 @@
 # asCallback
 A performant and standard (Bluebird) library that registers a node-style callback on a promise.
 
+[![Build Status](https://travis-ci.org/luin/asCallback.svg?branch=master)](https://travis-ci.org/luin/asCallback)
+
 ## Install
 
 ```
