@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "build": "rm -rf built && tsc",
-    "test": "mocha",
-    "prepublishOnly": "npm run build && npm test"
+    "test": "npm run build && mocha",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",
