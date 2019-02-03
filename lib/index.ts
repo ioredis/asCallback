@@ -1,17 +1,16 @@
-var utils = require('./lib/utils')
-var tryCatch = utils.tryCatch
-var errorObj = utils.errorObj
+import {tryCatch, errorObj} from './utils'
+import {CallbackFunction} from './types'
 
-function throwLater (e) {
+function throwLater (e: Error) {
   setTimeout(function () {
     throw e
   }, 0)
 }
 
-function asCallback (promise, nodeback, options) {
+function asCallback (promise: Promise<any>, nodeback: CallbackFunction, options) {
   if (typeof nodeback === 'function') {
-    promise.then(function (val) {
-      var ret
+    promise.then((val) => {
+      let ret: any
       if (options !== undefined && Object(options).spread && Array.isArray(val)) {
         ret = tryCatch(nodeback).apply(undefined, [null].concat(val))
       } else {
@@ -22,13 +21,13 @@ function asCallback (promise, nodeback, options) {
       if (ret === errorObj) {
         throwLater(ret.e)
       }
-    }, function (reason) {
-      if (!reason) {
-        var newReason = new Error(reason + '')
-        newReason.cause = reason
-        reason = newReason
+    }, (cause: Error) => {
+      if (!cause) {
+        const newReason = new Error(cause + '')
+        Object.assign(newReason, {cause})
+        cause = newReason
       }
-      var ret = tryCatch(nodeback)(reason)
+      const ret = tryCatch(nodeback)(cause)
       if (ret === errorObj) {
         throwLater(ret.e)
       }
@@ -38,4 +37,4 @@ function asCallback (promise, nodeback, options) {
   return promise
 }
 
-module.exports = asCallback
+export = asCallback

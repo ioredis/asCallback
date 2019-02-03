@@ -1,11 +1,13 @@
+import {CallbackFunction} from './types'
+
 //Try catch is not supported in optimizing
 //compiler, so it is isolated
-var errorObj = {e: {}};
-var tryCatchTarget;
+export const errorObj = {e: {}}
+let tryCatchTarget: CallbackFunction
 
-function tryCatcher() {
+function tryCatcher(err: Error, val?: any): any {
   try {
-    var target = tryCatchTarget
+    const target = tryCatchTarget
     tryCatchTarget = null
     return target.apply(this, arguments)
   } catch (e) {
@@ -13,10 +15,7 @@ function tryCatcher() {
     return errorObj
   }
 }
-function tryCatch(fn) {
+export function tryCatch(fn: CallbackFunction) {
   tryCatchTarget = fn
   return tryCatcher
 }
-
-exports.tryCatch = tryCatch
-exports.errorObj = errorObj
