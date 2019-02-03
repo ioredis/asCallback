@@ -7,7 +7,11 @@ function throwLater (e: Error) {
   }, 0)
 }
 
-export default function asCallback (promise: Promise<any>, nodeback: CallbackFunction, options) {
+export interface IOptions {
+  spread: boolean
+}
+
+export default function asCallback (promise: Promise<any>, nodeback: CallbackFunction, options?: IOptions) {
   if (typeof nodeback === 'function') {
     promise.then((val) => {
       let ret: any
