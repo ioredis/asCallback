@@ -3,7 +3,7 @@ var testUtils = require('./helper.js')
 var awaitGlobalException = testUtils.awaitGlobalException
 var isNodeJS = testUtils.isNodeJS
 var sinon = require('sinon')
-var nodeify = require('..')
+var nodeify = require('..').default
 
 /*
 Copyright 2009–2012 Kristopher Michael Kowal. All rights reserved.
