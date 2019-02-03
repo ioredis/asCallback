@@ -7,7 +7,7 @@ function throwLater (e: Error) {
   }, 0)
 }
 
-function asCallback (promise: Promise<any>, nodeback: CallbackFunction, options) {
+export default function asCallback (promise: Promise<any>, nodeback: CallbackFunction, options) {
   if (typeof nodeback === 'function') {
     promise.then((val) => {
       let ret: any
@@ -36,5 +36,3 @@ function asCallback (promise: Promise<any>, nodeback: CallbackFunction, options)
 
   return promise
 }
-
-export = asCallback
