@@ -1,1 +1,3 @@
-export type CallbackFunction = ((err: null, val: any) => void) | ((err: Error) => void)
+export type CallbackFunction<T> =
+  | ((err: null, val: T) => void)
+  | ((err: Error) => void);
