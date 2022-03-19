@@ -1,18 +1,19 @@
 # Standard asCallback
 A performant and standard (Bluebird) library that registers a node-style callback on a promise. It's used by [ioredis](https://github.com/luin/ioredis).
 
-[![Build Status](https://travis-ci.org/luin/asCallback.svg?branch=master)](https://travis-ci.org/luin/asCallback)
+[![Build Status](https://github.com/ioredis/as-callback/workflows/Test/badge.svg)](https://github.com/ioredis/as-callback/actions?query=workflow%3ATest+branch%3Amaster) [![npm latest version](https://img.shields.io/npm/v/@ioredis/as-callback/latest.svg)](https://www.npmjs.com/package/@ioredis/as-callback)
+
 
 ## Install
 
 ```
-$ npm install standard-as-callback
+$ npm install @ioredis/as-callback
 ```
 
 ## Usage
 
 ```javascript
-const asCallback = require('standard-as-callback')
+const asCallback = require('@ioredis/as-callback').defaults;
 
 const promise = new Promise(function (resolve) {
   setTimeout(function () {
