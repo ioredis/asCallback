@@ -1,6 +1,6 @@
 {
   "name": "@ioredis/as-callback",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A performant and standard (Bluebird) library that registers a node-style callback on a promise",
   "main": "built/index.js",
   "types": "built/index.d.ts",
